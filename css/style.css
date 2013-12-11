@@ -6,6 +6,49 @@ html, body{
 	background-image: url('../img/back.png')
 }
 
+.the_post #toc-np-container{
+	float: right;
+	width: 250px;
+	margin: 35px 15px 0 26px;
+}
+
+.the_post p{
+width: 73%;
+font-size: 16px;
+line-height: 22px;
+padding: 0 20px;
+}
+
+.the_post h2, .the_post h3, .the_post h4, .the_post h5{
+margin: 0 20px;
+}
+
+.the_post h2{
+	border-bottom: 1px solid #E7E7E7;
+	margin: 20px;
+	padding-bottom: 5px;
+	width: 70%;
+}
+
+.the_post h3{
+	border-bottom: 1px solid #E7E7E7;
+	margin: 15px 20px;
+	padding-bottom: 5px;
+	width: 70%;
+}
+
+.the_post img{
+	border-radius: 5px;
+	border: 1px solid #E7E7E7;
+	padding: 1px;
+	max-width: 100%;
+	max-height: 450px;
+}
+
+.the_post{
+	float:left;
+}
+
 .worldSmallSearch{
 	margin-bottom:5px;
 	text-align:right;
