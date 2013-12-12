@@ -6,9 +6,18 @@
 
 		if($wp_query->post->post_type != 'page'){
 			$categories = array();
-			$category = get_the_category($wp_query->post->ID);
-			$category = $category[0];
-			$category->link = get_category_link($category->cat_ID);
+			
+			if(!is_category()){
+				$category = get_the_category($wp_query->post->ID);
+				$category = $category[0];
+				$category->link = get_category_link($category->cat_ID);
+			}
+			
+			else{
+				$category = get_term_by('name', single_cat_title('', false), 'category');
+				$category->link = get_category_link($category->cat_ID);
+			}
+			
 			array_push($categories, $category);
 			
 			while($category->parent > 0){
