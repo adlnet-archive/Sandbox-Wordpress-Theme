@@ -47,12 +47,32 @@ width: 70%;
 .the_post{
 	float:left;
 }
+
+.the_post .note, .the_post .remember{
+	padding: 11px;
+	border-radius: 5px;
+	margin-left: 20px;
+	width: 70%;
+}
 .the_post .note{
-background-color: #E5F4FF;
-border: 1px solid #C6CED5;
-padding: 5px;
-border-radius: 5px;
-	
+	background-color: #E5F4FF;
+	border: 1px solid #C6CED5;
+}
+.the_post .remember{
+	background-color: #DEF1D6;
+	border: 1px solid #ADDBAF;
+}
+.navContainer{
+	width:100%;
+	min-height: 25px;
+}
+.previousLink{
+	 float:left;
+	 margin: 10px;
+}
+.nextLink{
+	float:right;
+	margin: 10px;
 }
 
 .worldSmallSearch{
