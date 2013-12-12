@@ -21,20 +21,19 @@ padding: 0 20px;
 
 .the_post h2, .the_post h3, .the_post h4, .the_post h5{
 margin: 0 20px;
+width: 70%;
 }
 
 .the_post h2{
-	border-bottom: 1px solid #E7E7E7;
 	margin: 20px;
 	padding-bottom: 5px;
-	width: 70%;
+	border-bottom: 1px solid #E7E7E7;
 }
 
 .the_post h3{
-	border-bottom: 1px solid #E7E7E7;
 	margin: 15px 20px;
 	padding-bottom: 5px;
-	width: 70%;
+	border-bottom: 1px solid #E7E7E7;
 }
 
 .the_post img{
@@ -47,6 +46,13 @@ margin: 0 20px;
 
 .the_post{
 	float:left;
+}
+.the_post .note{
+background-color: #E5F4FF;
+border: 1px solid #C6CED5;
+padding: 5px;
+border-radius: 5px;
+	
 }
 
 .worldSmallSearch{
