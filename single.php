@@ -14,12 +14,12 @@ get_header(); ?>
 		$arr = get_categories();
 		$category = get_the_category($wp_query->post->ID);
 		$newArr = array();
-		//if($arr[$i]->cat_ID == $category[0]->cat_ID){
+
 		foreach($arr as $single){
 			if($single->cat_ID == $category[0]->cat_ID){
 				array_push($newArr, -1);
 			}
-			else if($single->parent == $category[0]->parent){
+			else if($single->parent == $category[0]->parent && $single->parent > 0){
 				$single->link = get_category_link($single->cat_ID);
 				array_push($newArr, $single);
 			}
@@ -29,8 +29,14 @@ get_header(); ?>
 			if($newArr[$i] == -1){
 				
 				if($i == 0){
-					$prevCat = get_category($category[0]->parent);
-					$prevCat->link = get_category_link($prevCat->cat_ID);
+					if($category[0]->parent > 0){
+						$prevCat = get_category($category[0]->parent);
+						$prevCat->link = $prevCat->parent > 0 ? get_category_link($prevCat->cat_ID) : get_permalink(get_page_by_title($prevCat->name));
+					}
+					else{
+						$prevCat = $category[0];
+						$prevCat->link = get_permalink(get_page_by_title($prevCat->name));
+					}
 				}
 				
 				else{
@@ -38,8 +44,16 @@ get_header(); ?>
 				}
 				
 				if($i + 1 >= count($newArr)){
-					$nextCat = get_category($category[0]->parent);
-					$nextCat->link = get_category_link($nextCat->cat_ID);
+					if($category[0]->parent > 0){
+						
+						$nextCat = get_category($category[0]->parent);
+						$nextCat->link = get_category_link($nextCat->cat_ID);
+					}
+					else{
+						
+						$nextCat = $category[0];
+						$nextCat->link = get_permalink(get_page_by_title($nextCat->name));
+					}
 				}
 				
 				else{
@@ -49,6 +63,8 @@ get_header(); ?>
 				break;
 			}
 		}
+		
+		
 	?>
 	<?php while ( have_posts() ) : the_post(); ?>
 	

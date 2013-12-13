@@ -16,8 +16,9 @@ $currentArr = array(
 <div class="content container">	
 	<h1><?php echo single_cat_title( '', false ); ?> Index</h1>
 
-	<?php echo pcig_index_generator($currentArr); ?>
-
+	<div class="index_container">
+		<?php echo pcig_index_generator($currentArr); ?>
+	</div>
 </div><!-- #content -->
 
 <?php //get_sidebar(); ?>

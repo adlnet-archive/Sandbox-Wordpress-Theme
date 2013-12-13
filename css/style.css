@@ -5,6 +5,11 @@ html, body{
 	color: #555;
 	background-image: url('../img/back.png')
 }
+.index_container{
+	margin: 0 auto;
+	width: 50%;
+	font-size: 25px;
+}
 
 .the_post #toc-np-container{
 	float: right;
@@ -42,6 +47,10 @@ width: 70%;
 	padding: 1px;
 	max-width: 100%;
 	max-height: 450px;
+}
+
+.the_post .wp-smiley{
+	border:none;
 }
 
 .the_post{

@@ -69,10 +69,10 @@
 						</a>
 					</div>
 					<div class="linkMenu">
-						<a href="<?php echo $root;?>">Home</a> 
-						<a href="<?php echo $root;?>/worlds">Worlds</a> 
-						<a href="http://www.youtube.com/watch?list=PLbhwHX3OvksljQcxLkRT3YvyjgQaIY8m2&v=aWRQJJnBi5c">Videos</a> 
-						<a href="<?php echo $root;?>/help">Help</a>
+						<a href="/adl/sandbox">Home</a> 
+						<a href="/adl/sandbox/worlds">Worlds</a> 
+						<a href="<?php echo get_permalink(get_page_by_title("blog")); ?>">Blog</a> 
+						<a href="<?php echo get_permalink(get_page_by_title("documentation")); ?>">Docs</a>
 					</div>
 				</div>
 			</div>	
