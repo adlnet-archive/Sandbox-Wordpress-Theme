@@ -1,28 +1,65 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The Template for the index
+ *
+ */
 
-<div class="content container">	
-	
-	<?php /* The loop */ ?>
-	<?php while ( have_posts() ) : the_post(); ?>
+get_header(); 
+$offset = 0;
+$per_page = 5;
+if(is_numeric($_GET['paged']) && $_GET['paged'] > 0){
+	$offset = $per_page * ((int)$_GET['paged'] - 1);
+}
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<header class="entry-header">
-				<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-				<div class="entry-thumbnail">
-					<?php the_post_thumbnail(); ?>
+$currentArr = array(
+	'category' => 4,
+	'show'=>'category_name,post_title',
+	'links'=> 'post_title,subcategory_name,category_name',
+	'hide_empty'=>true,
+	'order'=>'asc');
+
+$args = array(
+	'posts_per_page'   => $per_page,
+	'offset'           => $offset,
+	'category'         => '',
+	'orderby'          => 'post_date',
+	'order'            => 'DESC',
+	'post_type'        => 'post',
+	'post_status'      => 'publish',
+	'suppress_filters' => true );
+$posts_array = query_posts( $args );
+?>				
+
+<div class="content container">			
+	<div class="row">
+		<div class="col-md-8" style="float:none;margin:20px auto;">
+			<?php foreach($posts_array as $post): setup_postdata( $post ); $time = get_the_date('U'); ?>
+			
+				<div class="post_preview">
+					<h1><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h1>
+					<div class="post_date">
+						<?php echo date('F d, Y', $time); ?>
+					</div>
+					<p><?php the_excerpt(); ?></p>
+					<a href="<?php the_permalink(); ?>" style="text-align:right;float:right;margin:10px 0;">Read More</a>
 				</div>
-				<?php endif; ?>
+			<?php endforeach; ?>
+			
+			<?php if($offset > 0): ?>
+				<button class="btn btn-default" style="margin:20px 0;">
+					<?php  previous_posts_link('< Previous Posts'); ?>
+				</button>
+			<?php endif; ?>
+			
+			<?php if($wp_query->found_posts > 0 && $wp_query->post_count >= $per_page): ?>
+				<button class="btn btn-default" style="float:right;margin:20px 0;">
+					<?php next_posts_link( 'Next Posts >', ceil($wp_query->found_posts / $per_page) ); ?>
+				</button>
+			<?php endif; ?>
+		</div>
+	</div>
 
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-			</header><!-- .entry-header -->
-
-			<div class="entry-content">
-				<?php the_content(); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-			</div><!-- .entry-content -->
-		</article><!-- #post -->
-	<?php endwhile; ?>
-</div><!-- #primary -->
+</div><!-- #container -->
 <div class="content container">	
 <?php //get_sidebar(); ?>
 </div>

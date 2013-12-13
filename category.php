@@ -1,7 +1,6 @@
 <?php
 get_header(); 
 
-
 $category = get_term_by('name', single_cat_title('', false), 'category');
 
 $currentArr = array(

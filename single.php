@@ -49,7 +49,6 @@ get_header(); ?>
 				break;
 			}
 		}
-
 	?>
 	<?php while ( have_posts() ) : the_post(); ?>
 	
@@ -78,7 +77,7 @@ get_header(); ?>
 		<div class="the_post"><?php echo the_content(); ?></div>
 
 	<?php endwhile; // end of the loop. ?>
-
+	<?php echo posts_nav_link( "---", "pre", "Next" ); ?> 
 </div>
 <div class="content container">	
 <?php //get_sidebar(); ?>

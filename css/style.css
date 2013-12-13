@@ -62,6 +62,21 @@ width: 70%;
 	background-color: #DEF1D6;
 	border: 1px solid #ADDBAF;
 }
+.post_preview{
+	width:100%;
+	clear:both;
+	margin-bottom:60px;
+}
+.post_preview h1{
+	margin-bottom:0;
+}
+
+.post_preview .post_date{
+	text-align:center;
+	margin-top:0;
+	height: 22px;
+	font-size:16px;
+}
 .navContainer{
 	width:100%;
 	min-height: 25px;
