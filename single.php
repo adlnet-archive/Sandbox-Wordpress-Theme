@@ -7,7 +7,9 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header(); 
+
+?>
 <div class="content container">	
 	<?php
 	

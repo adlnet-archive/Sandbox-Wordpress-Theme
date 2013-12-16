@@ -4,6 +4,9 @@
  *
  */
 
+header('Location: '. get_permalink(get_page_by_title("blog")));
+exit(); 
+
 get_header(); 
 $offset = 0;
 $per_page = 5;
