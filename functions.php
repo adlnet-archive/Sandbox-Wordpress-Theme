@@ -1,7 +1,7 @@
 <?php
 
 show_admin_bar(false);
-	
+
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'custom_trim_excerpt');
 
