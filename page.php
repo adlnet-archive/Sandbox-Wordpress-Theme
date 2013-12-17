@@ -35,15 +35,25 @@ $posts_array = get_posts( $args );
 <div class="content container">			
 	<div class="row">
 		<div class="col-md-8" style="float:none;margin:20px auto;">
-			<?php for($i = $offset; $i < sizeof($posts_array) && $i < $offset + $per_page; $i++): $post = $posts_array[$i]; setup_postdata( $post ); $time = get_the_date('U'); ?>
+			<?php 
+				for($i = $offset; $i < sizeof($posts_array) && $i < $offset + $per_page; $i++):
+					$post = $posts_array[$i]; 
+					setup_postdata( $post ); 
+					$time = get_the_date('U'); 
+					$excerpt = get_the_excerpt();
+				?>
 			
 				<div class="post_preview">
 					<h1><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h1>
 					<div class="post_date">
 						<?php echo date('F d, Y', $time); ?>
 					</div>
-					<p><?php the_excerpt(); ?></p>
-					<a href="<?php the_permalink(); ?>" style="text-align:right;float:right;margin:10px 0;">Read More</a>
+					<div style="margin:20px 0;">
+						<?php the_excerpt(); ?>
+					</div>
+					<?php if(strlen($excerpt) > 100): ?>
+						<a href="<?php the_permalink(); ?>" style="text-align:right;float:right;margin:10px 0;">Read More</a>
+					<?php endif; ?>
 				</div>
 			<?php endfor; ?>
 			

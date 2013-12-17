@@ -1,11 +1,15 @@
 <?php
 /**
  * The Template for the index
- *
  */
 
-header('Location: '. get_permalink(get_page_by_title("blog")));
+if(isset($_GET['docs'])) header('Location: '. get_permalink(get_page_by_title("documentation")));
+else header('Location: '. get_permalink(get_page_by_title("blog")));
 exit(); 
+
+/*
+	This lower portion of the script is not currently being used.
+*/
 
 get_header(); 
 $offset = 0;

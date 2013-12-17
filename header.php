@@ -58,7 +58,7 @@
 			<div class="content container" style="border:none;padding:0;">
 				<div id="pageLogo">
 					<div id="logo">
-						<a href="<?php echo $root;?>">
+						<a href="/adl/sandbox">
 							<div style=" float:left;">
 								<img src="<?php echo $root;?>/img/VWS_Logo.png" />
 							</div>
