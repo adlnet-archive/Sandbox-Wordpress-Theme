@@ -7,7 +7,7 @@ get_header();
 
 $offset = 0;
 $per_page = 5;
-$blog = get_term_by('name', 'blog', 'category');
+$blog = get_term_by('slug', 'blog', 'category');
 
 if(is_numeric($_GET['paged']) && $_GET['paged'] > 0){
 	$offset = $per_page * ((int)$_GET['paged'] - 1);

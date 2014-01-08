@@ -10,19 +10,19 @@
 			if(!is_category()){
 				$category = get_the_category($wp_query->post->ID);
 				$category = $category[0];
-				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->name));
+				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->slug));
 			}
 			
 			else{
 				$category = get_term_by('name', single_cat_title('', false), 'category');
-				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->name));
+				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->slug));
 			}
 			
 			array_push($categories, $category);
 			
 			while($category->parent > 0){
 				$category = get_category($category->parent);
-				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->name));
+				$category->link = $category->parent > 0 ? get_category_link($category->cat_ID) : get_permalink(get_page_by_title($category->slug));
 				array_push($categories, $category);
 			}
 		}

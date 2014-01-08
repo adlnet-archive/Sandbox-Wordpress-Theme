@@ -41,7 +41,7 @@ ol li{
 .the_post #toc-np-container{
 	float: right;
 	width: 250px;
-	margin: 35px 15px 0 26px;
+	margin: 10px 15px 0 26px;
 }
 
 .the_post p{
@@ -82,7 +82,6 @@ width: 70%;
 }
 
 .the_post{
-	float:left;
 	width: 100%;
 }
 
