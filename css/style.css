@@ -45,10 +45,14 @@ ol li{
 }
 
 .the_post p{
-width: 73%;
+width: 70%;
 font-size: 16px;
 line-height: 22px;
 padding: 0 20px;
+}
+
+.the_post ol, .the_post ul {
+	width: 70%;
 }
 
 .the_post h2, .the_post h3, .the_post h4, .the_post h5, .the_post h6{
